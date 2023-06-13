@@ -24,6 +24,11 @@ class Three_Dimensional_Euclidean_Point {
         double operator* (const Three_Dimensional_Euclidean_Point& p) {
             return this->_r1 * p._r1 + this->_r2 * p._r2 + this->_r3 * p._r3;
         }
+
+        friend ostream& operator<< (ostream& output, const Three_Dimensional_Euclidean_Point& p) {
+            output << "(" << p._r1 << "," << p._r2 << "," << p._r3 << ")";
+            return output;
+        }
 };
 
 int main() {
@@ -31,4 +36,5 @@ int main() {
     Three_Dimensional_Euclidean_Point q(4, 5, 6);
 
     cout << p * q << endl;
+    cout << p << endl;
 }
