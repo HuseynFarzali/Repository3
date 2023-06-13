@@ -7,6 +7,7 @@ class Three_Dimensional_Euclidean_Point {
         double _r1, _r2, _r3;
     
     public:
+        Three_Dimensional_Euclidean_Point() {_r1 = _r2 = _r3 = 0;}
         Three_Dimensional_Euclidean_Point(double r1, double r2, double r3) {
             _r1 = r1; _r2 = r2; _r3 = r3;
         }
@@ -29,6 +30,11 @@ class Three_Dimensional_Euclidean_Point {
             output << "(" << p._r1 << "," << p._r2 << "," << p._r3 << ")";
             return output;
         }
+
+        friend istream& operator>> (istream& input, Three_Dimensional_Euclidean_Point& q) {
+            input >> q._r1 >> q._r2 >> q._r3;
+            return input;
+        }
 };
 
 int main() {
@@ -37,4 +43,7 @@ int main() {
 
     cout << p * q << endl;
     cout << p << endl;
+
+    Three_Dimensional_Euclidean_Point k; cin >> k;
+    cout << k << endl;
 }
